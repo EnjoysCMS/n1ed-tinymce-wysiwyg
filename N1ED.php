@@ -6,6 +6,7 @@ namespace EnjoysCMS\WYSIWYG\N1ED;
 
 use App\Components\Helpers\Assets;
 use App\Components\WYSIWYG\WysiwygInterface;
+use EnjoysCMS\WYSIWYG\TinyMCE\TinyMCE;
 
 class N1ED implements WysiwygInterface
 {
@@ -13,8 +14,11 @@ class N1ED implements WysiwygInterface
 
     public function __construct(string $twigTemplate = null)
     {
-        $this->twigTemplate = $twigTemplate ?? '@wysisyg/n1ed-tinymce/n1ed.twig';
+        new TinyMCE();
         $this->initialize();
+
+        $this->twigTemplate = $twigTemplate ?? '@wysisyg/n1ed-tinymce/n1ed.twig';
+
     }
 
     public function getTwigTemplate()
