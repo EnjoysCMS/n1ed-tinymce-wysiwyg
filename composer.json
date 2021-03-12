@@ -1,0 +1,13 @@
+{
+  "name": "enjoyscms/n1ed-tinymce",
+  "description": "N1ED TinyMCE for EnjoysCMS",
+  "type": "enjoyscms-wysiwyg",
+  "require": {
+    "oomphinc/composer-installers-extender": "^2.0",
+    "enjoyscms/tinymce": "dev-master"
+  },
+  "extra": {
+    "module-name": "N1ED TinyMCE WYSIWYG Editor",
+    "use-migrations": false
+  }
+}
