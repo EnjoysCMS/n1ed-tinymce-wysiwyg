@@ -2,10 +2,14 @@
   "name": "enjoyscms/n1ed-tinymce",
   "description": "N1ED TinyMCE for EnjoysCMS",
   "type": "enjoyscms-wysiwyg",
-  "minimum-stability": "dev",
   "require": {
     "oomphinc/composer-installers-extender": "^2.0",
     "enjoyscms/tinymce": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "EnjoysCMS\\WYSIWYG\\N1ED\\\\": ""
+    }
   },
   "extra": {
     "module-name": "N1ED TinyMCE WYSIWYG Editor",
