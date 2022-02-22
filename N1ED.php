@@ -13,8 +13,7 @@ class N1ED implements WysiwygInterface
 
     public function __construct(string $twigTemplate = null, string $apiKey = null)
     {
-        new TinyMCE();
-        $this->initialize();
+        $this->initialize(new TinyMCE());
 
         $this->twigTemplate = $twigTemplate ?? '@wysisyg/n1ed-tinymce/n1ed.twig';
         $this->apiKey = $apiKey ?? $_ENV['N1ED_API_KEY'] ?? '';
@@ -25,10 +24,13 @@ class N1ED implements WysiwygInterface
         return $this->twigTemplate;
     }
 
-    private function initialize()
+    private function initialize(TinyMCE $tinymce)
     {
+        $reflector = new \ReflectionClass($tinymce);
+        $path = str_replace($_ENV['PROJECT_DIR'], '', realpath(dirname($reflector->getFileName()).'/..'));
+
         Assets::createSymlink(
-            $_ENV['PUBLIC_DIR'] . '/assets/WYSIWYG/tinymce/node_modules/tinymce/plugins/n1ed',
+            sprintf('%s/assets%s/node_modules/tinymce/plugins/n1ed', $_ENV['PUBLIC_DIR'], $path),
             __DIR__ . '/plugins/n1ed'
         );
 //        Assets::js(__DIR__ . '/plugins/n1ed/plugin.min.js');
