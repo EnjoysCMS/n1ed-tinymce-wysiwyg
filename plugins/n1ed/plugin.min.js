@@ -45,7 +45,7 @@ function getCookie(name) {
 }
 
 
-apiKey = getCookie("N1ED_APIKEY") || apiKey || "CKEDDFLT";
+apiKey = getCookie("N1ED_APIKEY") || apiKey || "TINYDFLT";
 n1edHttps = !(getCookie("N1ED_HTTPS") === "false" || n1edHttps === false);
 n1edPrefix = getCookie("N1ED_PREFIX") || n1edPrefix || null;
 n1edHttpsApp = !(getCookie("N1ED_HTTPS_APP") === "false" || n1edHttpsApp === false);
