@@ -31,7 +31,7 @@ class N1ED implements WysiwygInterface
     private function initialize(TinyMCE $tinymce)
     {
         $reflector = new \ReflectionClass($tinymce);
-        $path = str_replace(realpath($_ENV['PROJECT_DIR']), '', realpath(dirname($reflector->getFileName()).'/..'));
+        $path = str_replace(getenv('ROOT_PATH'), '', realpath(dirname($reflector->getFileName()).'/..'));
 
         Assets::createSymlink(
             sprintf('%s/assets%s/node_modules/tinymce/plugins/n1ed', $_ENV['PUBLIC_DIR'], $path),

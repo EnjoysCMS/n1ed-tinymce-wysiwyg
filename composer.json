@@ -4,8 +4,8 @@
   "type": "enjoyscms-wysiwyg",
   "require": {
     "php": ">=8.0",
-    "enjoyscms/core": "^4.0",
-    "enjoyscms/tinymce": "^4.0"
+    "enjoyscms/core": "^4.5",
+    "enjoyscms/tinymce": "^4.2"
   },
   "autoload": {
     "psr-4": {
