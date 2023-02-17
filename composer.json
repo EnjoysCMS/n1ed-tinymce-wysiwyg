@@ -3,9 +3,9 @@
   "description": "N1ED TinyMCE for EnjoysCMS",
   "type": "enjoyscms-wysiwyg",
   "require": {
-    "php": ">=8.0",
-    "enjoyscms/core": "^4.5",
-    "enjoyscms/tinymce": "^4.2"
+    "php": "^8.0",
+    "enjoyscms/core": "^4.5 <4.8",
+    "enjoyscms/tinymce": "^4.2 <4.3"
   },
   "autoload": {
     "psr-4": {
