@@ -26,9 +26,9 @@ final class N1ED implements ContentEditorInterface
      */
     public function __construct(
         TinyMCE $tinyMCE,
-        private Environment $twig,
-        private LoggerInterface $logger,
-        private ?string $template = null,
+        private readonly Environment $twig,
+        private readonly LoggerInterface $logger,
+        private readonly ?string $template = null,
         string $apiKey = null
     ) {
         $this->initialize($tinyMCE);
