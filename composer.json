@@ -2,9 +2,9 @@
   "name": "enjoyscms/n1ed-tinymce",
   "description": "N1ED TinyMCE for EnjoysCMS",
   "require": {
-    "php": "^8.0",
-    "enjoyscms/core": "^4.7",
-    "enjoyscms/tinymce": "^4.3"
+    "php": "^8.1",
+    "enjoyscms/core": "^6.0@dev",
+    "enjoyscms/tinymce": "^6.0@dev"
   },
   "autoload": {
     "psr-4": {
