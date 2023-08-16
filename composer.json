@@ -3,7 +3,6 @@
   "description": "N1ED TinyMCE for EnjoysCMS",
   "require": {
     "php": "^8.1",
-    "enjoyscms/core": "^6.0@dev",
     "enjoyscms/tinymce": "^6.0@dev"
   },
   "autoload": {
