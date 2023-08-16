@@ -6,8 +6,11 @@ namespace EnjoysCMS\ContentEditor\N1ED;
 
 use Enjoys\AssetsCollector;
 use EnjoysCMS\ContentEditor\TinyMCE\TinyMCE;
-use EnjoysCMS\Core\Components\ContentEditor\ContentEditorInterface;
+use EnjoysCMS\Core\ContentEditor\ContentEditorInterface;
+use Exception;
 use Psr\Log\LoggerInterface;
+use ReflectionClass;
+use RuntimeException;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -19,7 +22,7 @@ final class N1ED implements ContentEditorInterface
     private string $apiKey;
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(
         TinyMCE $tinyMCE,
@@ -39,11 +42,11 @@ final class N1ED implements ContentEditorInterface
 
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function initialize(TinyMCE $tinymce): void
     {
-        $reflector = new \ReflectionClass($tinymce);
+        $reflector = new ReflectionClass($tinymce);
         $path = str_replace(getenv('ROOT_PATH'), '', realpath(dirname($reflector->getFileName()) . '/..'));
 
         AssetsCollector\Helpers::createSymlink(
@@ -72,7 +75,7 @@ final class N1ED implements ContentEditorInterface
     public function getSelector(): string
     {
         if ($this->selector === null) {
-            throw new \RuntimeException('Selector not set');
+            throw new RuntimeException('Selector not set');
         }
         return $this->selector;
     }
@@ -86,7 +89,7 @@ final class N1ED implements ContentEditorInterface
     {
         $twigTemplate = $this->getTemplate();
         if (!$this->twig->getLoader()->exists($twigTemplate)) {
-            throw new \RuntimeException(
+            throw new RuntimeException(
                 sprintf("ContentEditor: (%s): Нет шаблона в по указанному пути: %s", self::class, $twigTemplate)
             );
         }
