@@ -29,7 +29,7 @@ final class N1ED implements ContentEditorInterface
         private readonly Environment $twig,
         private readonly LoggerInterface $logger,
         private readonly ?string $template = null,
-        string $apiKey = null
+        ?string $apiKey = null
     ) {
         $this->initialize($tinyMCE);
         $this->apiKey = $apiKey ?? $_ENV['N1ED_API_KEY'] ?? '';
