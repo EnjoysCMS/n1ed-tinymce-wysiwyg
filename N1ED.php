@@ -16,6 +16,8 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
+use function Enjoys\FileSystem\makeSymlink;
+
 final class N1ED implements ContentEditorInterface
 {
     private ?string $selector = null;
@@ -49,10 +51,9 @@ final class N1ED implements ContentEditorInterface
         $reflector = new ReflectionClass($tinymce);
         $path = str_replace(getenv('ROOT_PATH'), '', realpath(dirname($reflector->getFileName()) . '/..'));
 
-        AssetsCollector\Helpers::createSymlink(
+        makeSymlink(
             sprintf('%s/assets%s/node_modules/tinymce/plugins/n1ed', $_ENV['PUBLIC_DIR'], $path),
-            __DIR__ . '/plugins/n1ed',
-            $this->logger
+            __DIR__ . '/plugins/n1ed'
         );
     }
 
